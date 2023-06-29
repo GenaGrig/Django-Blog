@@ -32,6 +32,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['my-blog-project-codestar-5b71b2e6baf4.herokuapp.com', 'localhost']
 
+ACCOUNT_EMAIL_VERIFICATION = 'none'
 
 # Application definition
 
@@ -41,12 +42,21 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'django.contrib.sites',  # new
+    'allauth',  # new
+    "allauth.account",  # new
+    "allauth.socialaccount",  # new
     'cloudinary_storage',
     'django.contrib.staticfiles',
     'cloudinary',  # new
     'blog',  # new
     'django_summernote',  # new
 ]
+
+SITE_ID = 1  # new
+
+LOGIN_REDIRECT_URL = '/'  # new
+LOGOUT_REDIRECT_URL = '/'  # new
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
