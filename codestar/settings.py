@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 from pathlib import Path
 import os
 import dj_database_url
+from django.contrib.messages import constants as messages
 if os.path.isfile('env.py'):
     import env
 
@@ -51,12 +52,23 @@ INSTALLED_APPS = [
     'cloudinary',  # new
     'blog',  # new
     'django_summernote',  # new
+    'crispy_forms',  # new
 ]
 
 SITE_ID = 1  # new
 
 LOGIN_REDIRECT_URL = '/'  # new
 LOGOUT_REDIRECT_URL = '/'  # new
+
+MESSAGE_TAGS = {
+    messages.ERROR: 'alert-danger',
+    messages.SUCCESS: 'alert-success',
+    messages.WARNING: 'alert-warning',
+    messages.INFO: 'alert-info',
+    messages.DEBUG: 'alert-info',
+}
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'  # new
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
